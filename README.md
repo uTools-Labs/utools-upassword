@@ -1,6 +1,7 @@
 ### uTools 暗黑模式下 插件截图
 
-![uTools_1615102950520](https://user-images.githubusercontent.com/46470810/110233059-70231c00-7f5c-11eb-9fa4-9edb711c65bd.png)
+![4A766C411CCB0253947C3BA8CFA3963D](https://user-images.githubusercontent.com/4998729/122719145-61a90800-d2a0-11eb-9a21-8e15035e7e39.png)
+
 
 ### 构建
 ```
