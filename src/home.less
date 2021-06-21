@@ -1,0 +1,413 @@
+.home-loading {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .home-loading-spinner {
+    width: 70px;
+    text-align: center;
+  }
+  .home-loading-spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #212121;
+    border-radius: 100%;
+    display: inline-block;
+    animation: sk-bouncedelay 1s infinite ease-in-out both;
+  }
+  .home-loading-spinner .home-loading-bounce1 {
+    animation-delay: -0.24s;
+  }
+  .home-loading-spinner .home-loading-bounce2 {
+    animation-delay: -0.12s;
+  }
+  @-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+  }
+  @keyframes sk-bouncedelay {
+    0%, 80%, 100% { 
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 40% { 
+      -webkit-transform: scale(1.0);
+      transform: scale(1.0);
+    }
+  }
+}
+.home {
+  width: 100%;
+  height: 100%;
+}
+.home-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  & > div {
+    &:first-child {
+      width: 25%;
+      height: 100%;
+      border-right: 1px solid #eee;
+      box-sizing: border-box;
+      position: relative;
+    }
+    &:last-child {
+      width: 75%; 
+      height: 100%;
+    }
+  }
+}
+
+@tree-sort-target-color: #e8eaf6;
+.tree-normal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  .tree-body {
+    flex: 1;
+    height: 0;
+    background-color: @tree-sort-target-color;
+    user-select: none;
+    color: #333;
+    font-size: 12px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .tree-footer {
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+.tree-root {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  .tree-root-child {
+    background-color: @tree-sort-target-color;
+  }
+}
+
+.tree-node {
+  position: relative;
+  height: 32px;
+  overflow: hidden;
+  .tree-node-body {
+    cursor: pointer;
+    box-sizing: border-box;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #fff;
+    width: 100%;
+    z-index: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tree-node-selected {
+    background-color: #efebe9;
+  }
+  .tree-node-edit-box {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    input {
+      width: 100%;
+      height: 100%;
+      outline: none;
+      box-sizing: border-box;
+      border: 1px solid #eee;
+    }
+  }
+  .tree-node-preview {
+    position: absolute;
+    padding: 3px 6px;
+    top: 0;
+    background-color: #333;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #fff;  
+    z-index: 1;
+    white-space: nowrap; 
+  }
+  .tree-node-title {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .tree-node-badge {
+    padding: 0 5px;
+    & > span {
+      font-size: 12px;
+      background-color: #d7ccc8;
+      color: #666;
+      min-width: 18px;
+      height: 18px;
+      border-radius: 9px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 4px;
+      box-sizing: border-box;
+    }
+  }
+  .tree-node-icon-arrow-right, .tree-node-icon-arrow-down {
+    display: flex;
+    align-items: center;
+    width: 15px;
+    height: 100%;
+    position: relative;
+  }
+  .tree-node-icon-arrow-right::after {
+    content: '';
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 6px solid #515151;
+  }
+  .tree-node-icon-arrow-down::after {
+    content: '';
+    border-bottom: 8px solid #515151;
+    border-left: 8px solid transparent;
+  }
+}
+
+.account-area {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  &>div {
+    &:first-child {
+      width: 40%;
+      height: 100%;
+      border-right: 1px solid #eee;
+      box-sizing: border-box;
+      position: relative;
+    }
+    &:last-child {
+      position: relative;
+      height: 100%;
+      flex: 1;
+    }
+  }
+  .account-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    .account-list-body {
+      flex: 1;
+      height: 0;
+      & > div {
+        user-select: none;
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+    }
+    .account-list-footer {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  }
+}
+
+.account-root {
+  width: 100%;
+  height: 100%;
+}
+
+.account-item {
+  width: 100%;
+  .account-item-body {
+    background-color: #fff;
+    width: 100%;
+    cursor: pointer;
+    // height: 48px;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    min-height: 50px;
+    word-wrap: break-word; 
+    word-break: break-all;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .account-item-username {
+      color: rgba(0, 0, 0, 0.6);
+      font-size: 12px;
+    }
+  }
+  .account-item-sort {
+    height: 1px;
+    width: 100%;
+    background-color: #3f51b5;
+  }
+  .account-item-selected {
+    background-color: #f1f3f5;
+  }
+}
+
+.account-form {
+  width: 100%;
+  height: 100%;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  & > div {
+    padding-bottom: 26px;
+  }
+  .account-form-icon-divider {
+    display: inline-block;
+    width: 6px;
+  }
+}
+
+.random-password-popover {
+  padding: 20px 30px;
+  .random-password-popover-footer {
+    text-align: right;
+  }
+}
+
+.search-body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  .search-list {
+    width: 55%;
+    border-right: 1px solid #eee;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      position: relative;
+      tr {
+        cursor: pointer;
+      }
+      td {
+        padding: 8px 10px;
+        word-break: break-all;
+      }
+      thead {
+        th {
+          background-color: #fff;
+          position: sticky;
+          top: 0;
+          padding: 5px 10px;
+          font-size: 12px;
+          color: #666;
+          font-weight: 300;
+          text-align: left;
+        }
+      }
+    }
+    .search-selected {
+      background-color: #f1f3f5;
+    }
+  }
+  .search-form {
+    width: 45%;
+  }  
+}
+
+.search-empty {
+  width: 100%;
+  text-align: center;
+  color: #999;
+  font-weight: 300;
+  padding-top: 20px;
+}
+
+// 暗黑模式
+@media (prefers-color-scheme: dark) {
+  @darkBorderColor: #565656;
+  .home-body > div:first-child {
+    border-color: @darkBorderColor;
+  }
+  .tree-root {
+    background-color:#303133;
+  }
+  .tree-node {
+    .tree-node-body {
+      background-color:#303133;
+      color: #f1f1f1;
+      .tree-node-edit-box {
+        input {
+          border-color: @darkBorderColor;
+        }
+      }
+    }
+    .tree-node-preview {
+      background-color: #ccc;
+      color: #666;
+    }
+    .tree-node-badge > span {
+      background-color: #515151;
+      color: #ddd;
+    }
+    .tree-node-selected {
+      background-color: #414141;
+    }
+    .tree-node-icon-arrow-right::after {
+      border-left-color: #ccc;
+    }
+    .tree-node-icon-arrow-down::after {
+      border-bottom-color: #ccc;
+    }
+  }
+  .account-area > div:first-child {
+    border-color: @darkBorderColor;
+  }
+  .account-item {
+    .account-item-body {
+      background-color: #303133;
+      border-color: @darkBorderColor;
+      color: #fff;
+      .account-item-username {
+        color: #ccc;
+      }
+    }
+    .account-item-sort {
+      background-color: #90caf9;
+    }
+    .account-item-selected {
+      background-color: #515151;
+    }
+  }
+  .search-body {
+    color: #fff;
+    .search-list {
+      border-color: @darkBorderColor;
+      table {
+        thead {
+          th {
+            background-color: #303133;
+            color: #ccc;
+          }
+        }
+      }
+      .search-selected {
+        background-color: #515151;
+      }
+    }
+  }
+}

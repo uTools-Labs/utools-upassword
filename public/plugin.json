@@ -1,0 +1,22 @@
+{
+  "main": "index.html",
+  "logo": "logo.png",
+  "preload": "preload.js",
+  "features": [
+    {
+      "code": "passwords",
+      "explain": "开源的密码管理器",
+      "cmds": [
+        "Passwords",
+        "密码管理"
+      ]
+    },
+    {
+      "code": "random",
+      "explain": "生成随机密码",
+      "cmds": [
+        "随机密码"
+      ]
+    }
+  ]
+}
