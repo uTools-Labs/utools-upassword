@@ -35,21 +35,10 @@ const themeDic = {
 export default class App extends React.Component {
   state = {
     code: '',
-    theme: 'light'
+    theme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   }
 
   componentDidMount () {
-    // 主题切换
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      this.setState({ theme: e.matches ? 'dark' : 'light' })
-    })
-    // 插件初始化
-    window.utools.onPluginReady(() => {
-      const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-      if (this.state.theme !== theme) {
-        this.setState({ theme })
-      }
-    })
     // 进入插件
     window.utools.onPluginEnter(({ code, type, payload }) => {
       this.setState({ code })
@@ -57,6 +46,10 @@ export default class App extends React.Component {
     // 退出插件
     window.utools.onPluginOut(() => {
       this.setState({ code: '' })
+    })
+    // 主题切换
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      this.setState({ theme: e.matches ? 'dark' : 'light' })
     })
   }
 
