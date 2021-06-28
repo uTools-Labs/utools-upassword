@@ -2,15 +2,14 @@
 
 ![4A766C411CCB0253947C3BA8CFA3963D](https://user-images.githubusercontent.com/4998729/122719145-61a90800-d2a0-11eb-9a21-8e15035e7e39.png)
 
-
-### 构建
+### 构建 - 运行
 ```
 npm install
 ```
 ```
 npm run build
 ```
-**uTools 开发者工具** 插件中将 `./dist/plugin.json` 加入到项目中 
+**uTools 开发者工具** 中将 `dist/plugin.json` 加入到本地开发
 
 ### 引用的 bcrypt 库
 https://github.com/kelektiv/node.bcrypt.js
