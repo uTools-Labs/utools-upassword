@@ -47,13 +47,10 @@ export default class Reset extends React.Component {
       accounts.forEach(item => {
         ['title', 'username', 'password', 'remark', 'link'].forEach(f => {
           if (!item[f]) return
-          let plainVal = ''
           try {
-            plainVal = window.services.decryptValue(oldKeyIV, item[f])
-          } catch (e) {
-            plainVal = item[f]
-          }
-          item[f] = window.services.encryptValue(newKeyIV, plainVal)
+            const plainVal = window.services.decryptValue(oldKeyIV, item[f])
+            item[f] = window.services.encryptValue(newKeyIV, plainVal)
+          } catch (e) {}
         })
       })
       window.utools.db.bulkDocs(accounts)
