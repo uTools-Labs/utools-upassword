@@ -1,6 +1,9 @@
 'use strict';
 
-var bindings = require("./" + process.platform + "/" + process.arch + "/bcrypt_lib.node");
+var bindings
+if (process.platform === 'win32')
+bindings = require("./win32/" + process.arch + "/bcrypt_lib.node");
+else bindings = require("./" + process.platform + "/bcrypt_lib.node");
 
 var crypto = require('crypto');
 
