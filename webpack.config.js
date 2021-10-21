@@ -30,9 +30,8 @@ module.exports = {
             plugins: [
               ['@babel/plugin-proposal-decorators', { legacy: true }],
               '@babel/plugin-proposal-class-properties',
-              ['import', { libraryName: '@material-ui/core', libraryDirectory: 'esm', camel2DashComponentName: false }, 'core'],
-              ['import', { libraryName: '@material-ui/lab', libraryDirectory: 'esm', camel2DashComponentName: false }, 'lab'],
-              ['import', { libraryName: '@material-ui/icons', libraryDirectory: 'esm', camel2DashComponentName: false }, 'icons']
+              ['import', { libraryName: '@mui/material', libraryDirectory: 'esm', camel2DashComponentName: false }, 'material'],
+              ['import', { libraryName: '@mui/icons-material', libraryDirectory: 'esm', camel2DashComponentName: false }, 'icons']
             ]
           }
         }

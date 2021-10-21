@@ -5,7 +5,7 @@
   "features": [
     {
       "code": "passwords",
-      "explain": "开源的密码管理器",
+      "explain": "uTools 官方开源、安全、简洁的密码管理器",
       "cmds": [
         "Passwords",
         "密码管理"
@@ -13,7 +13,7 @@
     },
     {
       "code": "random",
-      "explain": "生成随机密码",
+      "explain": "随机密码生成器",
       "cmds": [
         "随机密码"
       ]

@@ -1,7 +1,7 @@
 import React from 'react'
 import RandomPassword from './RandomPassword'
-import Button from '@material-ui/core/Button'
-import SendIcon from '@material-ui/icons/Send'
+import Button from '@mui/material/Button'
+import SendIcon from '@mui/icons-material/Send'
 
 export default class Random extends React.Component {
   handleCopy = () => {

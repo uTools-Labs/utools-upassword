@@ -37,11 +37,20 @@ window.services = {
     return false
   },
   encryptValue: (keyiv, data) => {
+    if (!data) return ''
     const cipher = crypto.createCipheriv('aes-256-cbc', keyiv.key, keyiv.iv)
     return cipher.update(data, 'utf8', 'hex') + cipher.final('hex')
   },
   decryptValue: (keyiv, data) => {
+    if (!data) return ''
     const decipher = crypto.createDecipheriv('aes-256-cbc', keyiv.key, keyiv.iv)
     return decipher.update(data, 'hex', 'utf8') + decipher.final('utf8')
+  },
+  exportFile: (content, ext = '.txt') => {
+    const fs = require('fs')
+    const path = require('path')
+    const saveFile = path.join(window.utools.getPath('downloads'), 'uTools-密码管理器-' + Date.now() + ext)
+    fs.writeFileSync(saveFile, content, 'utf-8')
+    window.utools.shellShowItemInFolder(saveFile)
   }
 }

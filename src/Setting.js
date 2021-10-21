@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from '@material-ui/core/Button'
-import TextField from '@material-ui/core/TextField'
+import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
 import zxcvbn from 'zxcvbn'
 
 export default class Setting extends React.Component {
@@ -55,6 +55,7 @@ export default class Setting extends React.Component {
           <div>
             <TextField
               error={password && score < 2}
+              variant='standard'
               autoFocus
               type='password'
               fullWidth
@@ -67,6 +68,7 @@ export default class Setting extends React.Component {
           <div>
             <TextField
               error={confirmPasswordVerifyFail}
+              variant='standard'
               type='password'
               fullWidth
               label='确认开门密码'

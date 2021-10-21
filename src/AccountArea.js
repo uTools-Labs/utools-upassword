@@ -2,15 +2,15 @@ import React from 'react'
 import AccountItem from './AccountItem'
 import AccountRoot from './AccountRoot'
 import AccountForm from './AccountForm'
-import Tooltip from '@material-ui/core/Tooltip'
-import AddIcon from '@material-ui/icons/Add'
-import RemoveIcon from '@material-ui/icons/Remove'
-import IconButton from '@material-ui/core/IconButton'
-import Dialog from '@material-ui/core/Dialog'
-import DialogActions from '@material-ui/core/DialogActions'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogContentText from '@material-ui/core/DialogContentText'
-import Button from '@material-ui/core/Button'
+import Tooltip from '@mui/material/Tooltip'
+import AddIcon from '@mui/icons-material/Add'
+import RemoveIcon from '@mui/icons-material/Remove'
+import IconButton from '@mui/material/IconButton'
+import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
+import DialogContent from '@mui/material/DialogContent'
+import DialogContentText from '@mui/material/DialogContentText'
+import Button from '@mui/material/Button'
 
 export default class AccountArea extends React.Component {
   isMacOs = window.utools.isMacOs()
@@ -140,14 +140,14 @@ export default class AccountArea extends React.Component {
           <div className='account-list-footer'>
             <Tooltip title={'新增帐号 ' + (this.isMacOs ? '⌘' : 'Ctrl') + '+N'} placement='top'>
               <div>
-                <IconButton tabIndex='-1' onClick={this.handleCreate} size='small'>
+                <IconButton tabIndex={-1} onClick={this.handleCreate} size='small'>
                   <AddIcon />
                 </IconButton>
               </div>
             </Tooltip>
             <Tooltip title='删除帐号' placement='top'>
               <div>
-                <IconButton tabIndex='-1' disabled={!data} onClick={this.handleShowDeleteConfirm} size='small'>
+                <IconButton tabIndex={-1} disabled={!data} onClick={this.handleShowDeleteConfirm} size='small'>
                   <RemoveIcon />
                 </IconButton>
               </div>

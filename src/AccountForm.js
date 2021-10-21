@@ -1,20 +1,20 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import IconButton from '@material-ui/core/IconButton'
-import Button from '@material-ui/core/Button'
-import Tooltip from '@material-ui/core/Tooltip'
-import Popover from '@material-ui/core/Popover'
-import TitleIcon from '@material-ui/icons/Title'
-import AccountBoxIcon from '@material-ui/icons/AccountBox'
-import LinkIcon from '@material-ui/icons/Link'
-import VisibilityIcon from '@material-ui/icons/Visibility'
-import VisibilityOffIcon from '@material-ui/icons/VisibilityOff'
-import CopyrightIcon from '@material-ui/icons/Copyright'
-import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser'
-import AutorenewIcon from '@material-ui/icons/Autorenew'
-import LockIcon from '@material-ui/icons/Lock'
-import SendIcon from '@material-ui/icons/Send'
+import TextField from '@mui/material/TextField'
+import InputAdornment from '@mui/material/InputAdornment'
+import IconButton from '@mui/material/IconButton'
+import Button from '@mui/material/Button'
+import Tooltip from '@mui/material/Tooltip'
+import Popover from '@mui/material/Popover'
+import TitleIcon from '@mui/icons-material/Title'
+import AccountBoxIcon from '@mui/icons-material/AccountBox'
+import LinkIcon from '@mui/icons-material/Link'
+import VisibilityIcon from '@mui/icons-material/Visibility'
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy'
+import OpenInBrowserIcon from '@mui/icons-material/OpenInBrowser'
+import LockIcon from '@mui/icons-material/Lock'
+import ShuffleIcon from '@mui/icons-material/Shuffle'
+import SendIcon from '@mui/icons-material/Send'
 import RandomPassword from './RandomPassword'
 
 export default class AccountForm extends React.Component {
@@ -149,10 +149,11 @@ export default class AccountForm extends React.Component {
             id='accountFormTitle'
             onChange={this.handleInputChang('title')}
             value={titleValue}
+            variant='standard'
             InputProps={{
               startAdornment: (
                 <InputAdornment position='start'>
-                  <TitleIcon style={{ color: '#ababab' }} />
+                  <TitleIcon className='account-form-prev-icon' />
                 </InputAdornment>
               )
             }}
@@ -164,17 +165,18 @@ export default class AccountForm extends React.Component {
             label='用户名'
             onChange={this.handleInputChang('username')}
             value={usernameValue}
+            variant='standard'
             InputProps={{
               startAdornment: (
                 <InputAdornment position='start'>
-                  <AccountBoxIcon style={{ color: '#ababab' }} />
+                  <AccountBoxIcon className='account-form-prev-icon' />
                 </InputAdornment>
               ),
               endAdornment: (
                 <InputAdornment position='end'>
-                  <Tooltip title={'复制帐号 ' + (this.isMacOs ? '⌘' : 'Ctrl') + '+U'} placement='top'>
-                    <IconButton tabIndex='-1' onClick={this.handleCopy('usernameValue')} size='small'>
-                      <CopyrightIcon />
+                  <Tooltip title={'复制用户名，快捷键 ' + (this.isMacOs ? 'Command' : 'Ctrl') + '+U'} placement='top-end'>
+                    <IconButton tabIndex={-1} onClick={this.handleCopy('usernameValue')} size='small'>
+                      <ContentCopyIcon />
                     </IconButton>
                   </Tooltip>
                 </InputAdornment>
@@ -189,29 +191,30 @@ export default class AccountForm extends React.Component {
             label='密码'
             onChange={this.handleInputChang('password')}
             value={passwordValue}
+            variant='standard'
             InputProps={{
               startAdornment: (
                 <InputAdornment position='start'>
-                  <LockIcon style={{ color: '#ababab' }} />
+                  <LockIcon className='account-form-prev-icon' />
                 </InputAdornment>
               ),
               endAdornment: (
                 <InputAdornment position='end'>
                   <Tooltip title={passwordEye ? '关闭明文' : '明文显示'} placement='top'>
-                    <IconButton tabIndex='-1' onClick={this.handlePasswordVisible} size='small'>
+                    <IconButton tabIndex={-1} onClick={this.handlePasswordVisible} size='small'>
                       {passwordEye ? <VisibilityOffIcon /> : <VisibilityIcon />}
                     </IconButton>
                   </Tooltip>
                   <span className='account-form-icon-divider' />
-                  <Tooltip title='使用随机密码' placement='top'>
-                    <IconButton tabIndex='-1' onClick={this.handleShowRandomPassword} size='small'>
-                      <AutorenewIcon />
+                  <Tooltip title='生成随机密码' placement='top'>
+                    <IconButton tabIndex={-1} onClick={this.handleShowRandomPassword} size='small'>
+                      <ShuffleIcon />
                     </IconButton>
                   </Tooltip>
                   <span className='account-form-icon-divider' />
-                  <Tooltip title={'复制密码 ' + (this.isMacOs ? '⌘' : 'Ctrl') + '+P'} placement='top'>
-                    <IconButton tabIndex='-1' onClick={this.handleCopy('passwordValue')} size='small'>
-                      <CopyrightIcon />
+                  <Tooltip title={'复制密码，快捷键 ' + (this.isMacOs ? 'Command' : 'Ctrl') + '+P'} placement='top-end'>
+                    <IconButton tabIndex={-1} onClick={this.handleCopy('passwordValue')} size='small'>
+                      <ContentCopyIcon />
                     </IconButton>
                   </Tooltip>
                 </InputAdornment>
@@ -245,23 +248,24 @@ export default class AccountForm extends React.Component {
             label='链接'
             onChange={this.handleInputChang('link')}
             value={linkValue}
+            variant='standard'
             InputProps={{
               startAdornment: (
                 <InputAdornment position='start'>
-                  <LinkIcon style={{ color: '#ababab' }} />
+                  <LinkIcon className='account-form-prev-icon' />
                 </InputAdornment>
               ),
               endAdornment: (
                 <InputAdornment position='end'>
                   <Tooltip title='浏览器中打开' placement='top'>
-                    <IconButton tabIndex='-1' onClick={this.handleOpenLink} size='small'>
+                    <IconButton tabIndex={-1} onClick={this.handleOpenLink} size='small'>
                       <OpenInBrowserIcon />
                     </IconButton>
                   </Tooltip>
                   <span className='account-form-icon-divider' />
-                  <Tooltip title='复制链接' placement='top'>
-                    <IconButton tabIndex='-1' onClick={this.handleCopy('linkValue')} size='small'>
-                      <CopyrightIcon />
+                  <Tooltip title='复制链接' placement='top-end'>
+                    <IconButton tabIndex={-1} onClick={this.handleCopy('linkValue')} size='small'>
+                      <ContentCopyIcon />
                     </IconButton>
                   </Tooltip>
                 </InputAdornment>
@@ -274,11 +278,12 @@ export default class AccountForm extends React.Component {
             fullWidth
             label='说明'
             multiline
-            rows={11}
+            rows={9}
             value={remarkValue}
             onChange={this.handleInputChang('remark')}
             InputLabelProps={{ shrink: true }}
             variant='outlined'
+            className='account-form-remark'
           />
         </div>
       </div>

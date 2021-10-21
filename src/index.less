@@ -3,6 +3,9 @@ html, body {
   width: 100%;
   height: 100%;
   font-size: 14px;
+  overflow: hidden;
+  font-family: system-ui,"PingFang SC","Helvetica Neue","Microsoft Yahei",sans-serif;
+  word-break: break-all;
 }
 
 #root {
@@ -36,12 +39,11 @@ html, body {
     display: flex;
     background-color:#fff;
     width: 360px;
-    height: 49px;
-    border-radius: 25px;
+    border-radius: 28px;
     border: 1px solid #999;
     input {
       flex: 1;
-      height: 100%;
+      height: 48px;
       padding-left: 20px;
       background-color: transparent;
       border: none;
@@ -53,7 +55,10 @@ html, body {
       }
     }
     & > div {
-      padding: 2px;
+      display: flex;
+      align-items: center;
+      padding: 0 6px;
+      box-sizing: border-box;
       button {
         color: #ababab;
       }

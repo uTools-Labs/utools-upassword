@@ -259,7 +259,8 @@
     background-color: #3f51b5;
   }
   .account-item-selected {
-    background-color: #f1f3f5;
+    // background-color: rgba(0, 0, 0, 0.8);
+    background-color: #ebebeb;
   }
 }
 
@@ -275,6 +276,12 @@
   .account-form-icon-divider {
     display: inline-block;
     width: 6px;
+  }
+  .account-form-prev-icon {
+    color: #ababab;
+  }
+  .account-form-remark {
+    margin-top: 8px;
   }
 }
 
@@ -321,7 +328,7 @@
       }
     }
     .search-selected {
-      background-color: #f1f3f5;
+      background-color: #ebebeb;
     }
   }
   .search-form {
@@ -335,6 +342,13 @@
   color: #999;
   font-weight: 300;
   padding-top: 20px;
+}
+
+.export-dialog-content {
+  // min-width: 260px;
+  & > p {
+    padding-bottom: 10px;
+  }
 }
 
 // 暗黑模式
@@ -390,7 +404,7 @@
       background-color: #90caf9;
     }
     .account-item-selected {
-      background-color: #515151;
+      background-color: #606060;
     }
   }
   .search-body {
@@ -406,7 +420,7 @@
         }
       }
       .search-selected {
-        background-color: #515151;
+        background-color: #606060;
       }
     }
   }

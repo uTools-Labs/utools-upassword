@@ -4,31 +4,32 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "@material-ui/core": "^4.11.4",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.58",
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.4",
+    "@mui/material": "^5.0.4",
     "react": "^17.0.2",
-    "react-dnd": "^14.0.2",
-    "react-dnd-html5-backend": "^14.0.0",
+    "react-dnd": "^14.0.4",
+    "react-dnd-html5-backend": "^14.0.2",
     "react-dom": "^17.0.2",
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.10",
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
-    "@babel/plugin-proposal-decorators": "^7.13.5",
-    "@babel/preset-env": "^7.14.7",
+    "@babel/plugin-proposal-decorators": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@babel/preset-react": "^7.12.10",
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.13.3",
     "copy-webpack-plugin": "^9.0.1",
-    "css-loader": "^5.2.7",
-    "less": "^4.1.1",
-    "less-loader": "^10.0.0",
-    "style-loader": "^3.0.0",
-    "utools-api-types": "^2.0.4",
-    "webpack": "^5.40.0",
-    "webpack-cli": "^4.2.0"
+    "css-loader": "^6.4.0",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "style-loader": "^3.3.0",
+    "utools-api-types": "^2.3.0",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.1"
   }
 }

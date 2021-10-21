@@ -1,32 +1,36 @@
 import React from 'react'
 import Passwords from './Passwords'
 import Random from './Random'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 const themeDic = {
-  light: createMuiTheme({
-    palette: {
-      type: 'light'
+  light: createTheme({
+    typography: {
+      fontFamily: 'system-ui'
     },
-    props: {
-      MuiButtonBase: {
-        disableRipple: true
+    palette: {
+      mode: 'light'
+    },
+    components: {
+      MuiButton: {
+        defaultProps: {
+          disableFocusRipple: true
+        }
       }
     }
   }),
-  dark: createMuiTheme({
-    palette: {
-      type: 'dark',
-      primary: {
-        main: '#90caf9'
-      },
-      secondary: {
-        main: '#f48fb1'
-      }
+  dark: createTheme({
+    typography: {
+      fontFamily: 'system-ui'
     },
-    props: {
-      MuiButtonBase: {
-        disableRipple: true
+    palette: {
+      mode: 'dark'
+    },
+    components: {
+      MuiButton: {
+        defaultProps: {
+          disableFocusRipple: true
+        }
       }
     }
   })
@@ -47,7 +51,7 @@ export default class App extends React.Component {
     window.utools.onPluginOut(() => {
       this.setState({ code: '' })
     })
-    // 主题切换
+    // 主题切换事件
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
       this.setState({ theme: e.matches ? 'dark' : 'light' })
     })

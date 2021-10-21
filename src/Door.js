@@ -1,7 +1,7 @@
 import React from 'react'
-import SubdirectoryArrowLeftIcon from '@material-ui/icons/SubdirectoryArrowLeft'
-import IconButton from '@material-ui/core/IconButton'
-import Button from '@material-ui/core/Button'
+import SubdirectoryArrowLeftIcon from '@mui/icons-material/SubdirectoryArrowLeft'
+import IconButton from '@mui/material/IconButton'
+import Button from '@mui/material/Button'
 import Reset from './Reset'
 
 export default class Door extends React.Component {

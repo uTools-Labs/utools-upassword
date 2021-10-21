@@ -1,16 +1,16 @@
 import React from 'react'
-import FormGroup from '@material-ui/core/FormGroup'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import Checkbox from '@material-ui/core/Checkbox'
-import TextField from '@material-ui/core/TextField'
-import IconButton from '@material-ui/core/IconButton'
-import Slider from '@material-ui/core/Slider'
-import Tooltip from '@material-ui/core/Tooltip'
-import InputAdornment from '@material-ui/core/InputAdornment'
-import TextFormatIcon from '@material-ui/icons/TextFormat'
-import GolfCourseIcon from '@material-ui/icons/GolfCourse'
-import VpnKeyIcon from '@material-ui/icons/VpnKey'
-import ReplayIcon from '@material-ui/icons/Replay'
+import FormGroup from '@mui/material/FormGroup'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import TextField from '@mui/material/TextField'
+import IconButton from '@mui/material/IconButton'
+import Slider from '@mui/material/Slider'
+import Tooltip from '@mui/material/Tooltip'
+import InputAdornment from '@mui/material/InputAdornment'
+import TextFormatIcon from '@mui/icons-material/TextFormat'
+import GolfCourseIcon from '@mui/icons-material/GolfCourse'
+import VpnKeyIcon from '@mui/icons-material/VpnKey'
+import ReplayIcon from '@mui/icons-material/Replay'
 
 export default class RandomPassword extends React.Component {
   defaultSpecialCharacters = '!@#$%^&*()_+-=,.<>?/\\|[]{}:;"\'`~'
@@ -137,7 +137,7 @@ export default class RandomPassword extends React.Component {
               />
               <FormControlLabel
                 control={<Checkbox checked={charTypes.includes('*')} onChange={this.handleCharChange} value='*' color='primary' />}
-                label={<TextField style={{ width: 240 }} disabled={!charTypes.includes('*')} value={specialCharacters} onKeyDown={this.handleKeyDownSpecialCharacters} onChange={this.handleChangeSpecialCharacters} />}
+                label={<TextField variant='standard' style={{ width: 240 }} disabled={!charTypes.includes('*')} value={specialCharacters} onKeyDown={this.handleKeyDownSpecialCharacters} onChange={this.handleChangeSpecialCharacters} />}
               />
             </FormGroup>
           </div>
@@ -149,7 +149,7 @@ export default class RandomPassword extends React.Component {
               <Slider min={1} max={256} valueLabelDisplay='auto' value={lengthValue} onChange={this.handleLengthChange} />
             </div>
             <div>
-              <TextField variant='outlined' label='' type='number' size='small' value={lengthValue} onChange={this.handleLengthChange} InputLabelProps={{ shrink: true }} fullWidth />
+              <TextField variant='outlined' hiddenLabel type='number' size='small' value={lengthValue} onChange={this.handleLengthChange} InputLabelProps={{ shrink: true }} fullWidth />
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@ export default class RandomPassword extends React.Component {
           <div>
             <TextField
               fullWidth
-              label=''
+              hiddenLabel
               onChange={this.handlePasswordChange}
               value={passwordValue}
               variant='outlined'

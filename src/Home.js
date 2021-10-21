@@ -5,15 +5,16 @@ import { DndProvider } from 'react-dnd'
 import Tree from './Tree'
 import AccountArea from './AccountArea'
 import Search from './Search'
-import Snackbar from '@material-ui/core/Snackbar'
-import Alert from '@material-ui/lab/Alert'
+import SnackbarMessage from './SnackbarMessage'
+import ExportDialog from './ExportDialog'
 
 class Home extends React.Component {
   state = {
     selectedGroupId: '',
     sortedGroup: [],
     searchKey: '',
-    showError: false
+    snackbarMessage: { key: 0, type: 'info', body: '' },
+    exportData: null
   }
 
   handleDetectLive = () => {
@@ -114,12 +115,12 @@ class Home extends React.Component {
     window.removeEventListener('focus', this.handleClearDetectLiveTimeout)
   }
 
-  alertDbError = () => {
-    this.setState({ showError: true })
+  showMessage = (body, type = 'info') => {
+    this.setState({ snackbarMessage: { key: Date.now(), body, type } })
   }
 
-  handleCloseError = () => {
-    this.setState({ showError: false })
+  alertDbError = () => {
+    this.showMessage('数据写入错误，保存失败', 'error')
   }
 
   handleGroupUpdate = (node) => {
@@ -183,7 +184,7 @@ class Home extends React.Component {
     }
     const result = window.utools.db.put(newAccount)
     if (result.error) {
-      throw this.alertDbError()
+      return this.alertDbError()
     }
     newAccount._id = result.id
     newAccount._rev = result.rev
@@ -209,10 +210,10 @@ class Home extends React.Component {
         if (retry.ok) {
           account._rev = result.retry
         } else {
-          throw this.alertDbError()
+          this.alertDbError()
         }
       } else {
-        throw this.alertDbError()
+        this.alertDbError()
       }
     }
   }
@@ -221,7 +222,7 @@ class Home extends React.Component {
     const { group2Accounts, decryptAccountDic } = this.state
     const result = window.utools.db.remove(account)
     if (result.error) {
-      throw this.alertDbError()
+      return this.alertDbError()
     }
     group2Accounts[account.groupId].splice(group2Accounts[account.groupId].indexOf(account), 1)
     if (group2Accounts[account.groupId].length === 0) {
@@ -248,8 +249,22 @@ class Home extends React.Component {
     this.handleAccountUpdate(account)
   }
 
+  findGroupById = (id, childs) => {
+    for (const c of childs) {
+      if (c._id === id) return c
+      if (c.childs) {
+        return this.findGroupById(id, c.childs)
+      }
+    }
+    return null
+  }
+
+  handleExport = (node) => {
+    this.setState({ exportData: { group: node } })
+  }
+
   render () {
-    const { searchKey, selectedGroupId, groupIds, groupTree, group2Accounts, sortedGroup, decryptAccountDic, showError } = this.state
+    const { searchKey, selectedGroupId, groupIds, groupTree, group2Accounts, sortedGroup, decryptAccountDic, snackbarMessage, exportData } = this.state
     if (!group2Accounts) {
       return (
         <div className='home-loading'>
@@ -282,6 +297,7 @@ class Home extends React.Component {
                       onUpdate={this.handleGroupUpdate}
                       onDelete={this.handleGroupDelete}
                       onCreate={this.handleGroupCreate}
+                      onExport={this.handleExport}
                       onAppend={this.handleAccountGroupChange}
                       onMove={this.handleGroupMove}
                       onSelect={this.handleGroupSelect}
@@ -305,9 +321,8 @@ class Home extends React.Component {
             </div>
           </DndProvider>
         )}
-        <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'center' }} open={showError} autoHideDuration={3000} onClose={this.handleCloseError}>
-          <Alert style={{ lineHeight: '22px', fontWeight: 'normal' }} onClose={this.handleCloseError} variant='filled' severity='error'>数据写入错误，保存失败</Alert>
-        </Snackbar>
+        <SnackbarMessage message={snackbarMessage} />
+        <ExportDialog data={exportData} showMessage={this.showMessage} group2Accounts={group2Accounts} />
       </div>
     )
   }
