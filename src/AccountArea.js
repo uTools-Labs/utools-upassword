@@ -8,8 +8,7 @@ import RemoveIcon from '@mui/icons-material/Remove'
 import IconButton from '@mui/material/IconButton'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
-import DialogContent from '@mui/material/DialogContent'
-import DialogContentText from '@mui/material/DialogContentText'
+import DialogTitle from '@mui/material/DialogTitle'
 import Button from '@mui/material/Button'
 
 export default class AccountArea extends React.Component {
@@ -153,12 +152,10 @@ export default class AccountArea extends React.Component {
               </div>
             </Tooltip>
             <Dialog open={showDeleteConfirm} onClose={this.handleCloseDeleteConfirm}>
-              <DialogContent>
-                <DialogContentText>确认删除该帐号?</DialogContentText>
-              </DialogContent>
+              <DialogTitle>确认删除此帐号?</DialogTitle>
               <DialogActions>
-                <Button onClick={this.handleCloseDeleteConfirm} color='default'>取消</Button>
-                <Button onClick={this.handleDelete} color='secondary' autoFocus>删除</Button>
+                <Button onClick={this.handleCloseDeleteConfirm}>取消</Button>
+                <Button onClick={this.handleDelete} color='primary' autoFocus>删除</Button>
               </DialogActions>
             </Dialog>
           </div>
