@@ -37,7 +37,7 @@ export default class AccountForm extends React.Component {
       window.utools.hideMainWindow()
       this.handleCopy(e.code === 'KeyU' ? 'usernameValue' : 'passwordValue')()
     }
-    if ((e.code === 'ArrowUp' || e.code === 'ArrowDown') && e.keyCode === 229) {
+    if ((e.code === 'ArrowUp' || e.code === 'ArrowDown') && (e.keyCode === 229 || e.target.nodeName === 'TEXTAREA')) {
       e.stopPropagation()
     }
   }
