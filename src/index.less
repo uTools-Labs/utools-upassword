@@ -41,10 +41,11 @@ html, body {
     width: 360px;
     border-radius: 28px;
     border: 1px solid #999;
+    position: relative;
     input {
       flex: 1;
       height: 48px;
-      padding-left: 20px;
+      padding-left: 24px;
       background-color: transparent;
       border: none;
       outline: none;
@@ -54,15 +55,21 @@ html, body {
         font-weight: 200;
       }
     }
-    & > div {
-      display: flex;
-      align-items: center;
-      padding: 0 6px;
-      box-sizing: border-box;
-      button {
-        color: #ababab;
-      }
+  }
+  .door-input-enter {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    box-sizing: border-box;
+    button {
+      color: #ababab;
     }
+  }
+  .door-tooltip {
+    position: absolute;
+    top: 64px;
+    left: 24px;
+    font-size: 12px;
   }
 }
 @keyframes failbg
@@ -220,7 +227,8 @@ html, body {
 @media (prefers-color-scheme: dark) {
   @darkDoorBgColor: #303133;
   body {
-    background-color: @darkDoorBgColor; 
+    background-color: @darkDoorBgColor;
+    color: #fff;
   }
   ::-webkit-scrollbar-track-piece {
     background-color: @darkDoorBgColor; 
